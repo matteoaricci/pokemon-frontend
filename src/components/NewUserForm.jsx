@@ -1,0 +1,45 @@
+import React, {useState} from 'react';
+import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+
+const NewUserForm = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    function handleSubmit(event) {
+        event.preventDefault()
+    }
+
+    function validateForm() {
+        return username.length > 0 && password.length > 0
+    }
+
+    return (
+        <div className='new-user-form text-center'>
+            <form onSubmit={handleSubmit}>
+                <FormGroup controlId='username'>
+                    <FormLabel>Choose Your Username</FormLabel>
+                    <FormControl 
+                    autoFocus
+                    type='username'
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
+                    />
+                </FormGroup>
+                <FormGroup controlId='password'>
+                    <FormLabel>Choose Your Password</FormLabel>
+                    <FormControl 
+                    type='password'
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
+                </FormGroup>
+
+                <Button block disabled={!validateForm()} type='submit'>
+                    Create New User!
+                </Button>
+            </form>
+        </div>
+    );
+}
+
+export default NewUserForm;

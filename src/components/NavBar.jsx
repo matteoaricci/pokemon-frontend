@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom'
 
 class NavBar extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                 <a className="navbar-brand" href="/">PokeBattle</a>
+                 <Link className="navbar-brand" to="/">PokeBattle</Link>
                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                  </button>
@@ -13,21 +14,21 @@ class NavBar extends Component {
                     <ul className="navbar-nav mr-auto" >
 
                     <li className="nav-item active">
-                        <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                        <Link className="nav-link" to="/home">Home <span className="sr-only">(current)</span></Link>
                     </li>
                     
                     <li className="nav-item">
-                        <a className="nav-link" href="/">Battle</a>
+                        <Link className="nav-link" to="/battle">Battle</Link>
                     </li>
 
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Teams
-                        </a>
+                        </Link>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a className="dropdown-item" href="/">Create New Team</a>
+                        <Link className="dropdown-item" to="/newteam">Create New Team</Link>
                         <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" href="/">Edit Teams</a>
+                        <Link className="dropdown-item" to="/editteam">Edit Teams</Link>
                         </div>
                     </li>
 
