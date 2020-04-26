@@ -4,9 +4,17 @@ import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 const NewUserForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [trainerName, setTrainerName] = useState('')
 
     function handleSubmit(event) {
         event.preventDefault()
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({username: username,
+                                  password_digest: password,
+                                  trainer_name: trainerName})
+        })
     }
 
     function validateForm() {
@@ -25,6 +33,16 @@ const NewUserForm = () => {
                     onChange={e => setUsername(e.target.value)}
                     />
                 </FormGroup>
+
+                <FormGroup controlId='trainerName'>
+                    <FormLabel>Choose Your Trainer Name</FormLabel>
+                    <FormControl 
+                    type='trainerName'
+                    value={trainerName}
+                    onChange={e => setTrainerName(e.target.value)}
+                    />
+                </FormGroup>
+
                 <FormGroup controlId='password'>
                     <FormLabel>Choose Your Password</FormLabel>
                     <FormControl 

@@ -1,0 +1,20 @@
+.create-team-species,
+.create-team-type,
+.create-team-stat {
+    list-style-type: none;
+    text-align: left;
+}
+
+.create-team-stat {}
+
+.container {
+    max-height: 800px;
+    overflow-y: scroll;
+}
+
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+
+}

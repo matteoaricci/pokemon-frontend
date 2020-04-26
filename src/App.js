@@ -8,6 +8,7 @@ import PokemonContainer from './containers/PokemonContainer';
 import Home from './components/Home'
 import Login from './components/Login'
 import NewUserForm from './components/NewUserForm'
+import WelcomeScreen from './containers/WelcomeScreen'
 import {
   BrowserRouter as Router,
   Redirect,
@@ -23,9 +24,8 @@ function App() {
         <NavBar />
         {/* <Route path='/createteam' component={CreateTeam} /> */}
         {/* <Route path='/editteam' component={EditTeam} /> */}
-        {/* <PokemonContainer /> */}
-        <Route path='/login' component={Login} />
-        <Route path='/newuser' component={NewUserForm}/>
+        <Route path='/pokemon' component={PokemonContainer}/>
+        <Route path='/welcomepage' component={WelcomeScreen} />
         {/* <Route path='/' component={Home} /> */}
       </div>
     </Router>
