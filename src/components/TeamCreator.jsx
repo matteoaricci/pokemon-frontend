@@ -20,11 +20,9 @@ class TeamCreator extends Component {
         const { team } = this.props
         return (
             <div className="container">
-
                 <div className="team-list">
                     <TeamList team={team}/>
                 </div>
-
                 <div className="row filters">
                     <div className="col-sm pkm-species-filter">
                         <form>
@@ -37,22 +35,17 @@ class TeamCreator extends Component {
                                 />
                             </FormGroup>
                         </form>
-
-                        <div className="col-sm pkm-type-filter">
+                        {/* <div className="col-sm pkm-type-filter">
                             <InputGroup className="mb-3">
 
                             </InputGroup>
-                        </div>
+                        </div> */}
                     </div>
-
                 </div>
-
                 <div className="pokemon-grid">
-
                     {this.props.pokemons.map(pokemon => {
                         return <PokemonCard pokemon={pokemon} />
                     })}
-
                 </div>
             </div>
         );
@@ -63,7 +56,6 @@ const mapStateToProps = state => {
     return (
         { team: state.team }
     )
-
 }
 
 export default connect(mapStateToProps)(TeamCreator);

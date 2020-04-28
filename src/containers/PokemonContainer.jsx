@@ -22,7 +22,7 @@ class PokemonContainer extends Component {
     }
 
     filterPokemon = (pokemons) => {
-        return this.state.filter === '' ? pokemons : pokemons.filter(pokemon => pokemon.name.includes(this.state.filter))
+        return this.state.filter === '' ? pokemons : pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(this.state.filter.toLowerCase()))
     }
 
     handlePokemonClick = (event) => {
@@ -34,10 +34,6 @@ class PokemonContainer extends Component {
 
         return (
             <div>
-                <div className="team-create-btns">
-                    <Button>Save Team</Button>
-                    <Button>Add Pokemon</Button>
-                </div>
                 {this.state.showTeamList ?
                     <TeamCreator filter={this.filter}
                         handleFilterChange={this.handleFilterChange}
