@@ -4,7 +4,9 @@ import { combineReducers } from "redux";
 
 
     const initialState = {
-        pokemons: []
+        pokemons: [],
+        team: [],
+        pokemonShowCase: {}
     }
 
     export default function pokemonsReducer(state = initialState, action) {
@@ -14,6 +16,18 @@ import { combineReducers } from "redux";
                     ...state,
                     pokemons: action.payload
                 }
+
+                case 'ADD_POKE_TO_TEAM' :
+                    return {
+                        ...state,
+                        team: [...state.team, action.payload]
+                    }
+
+                    case 'SELECT_POKE_SHOWCASE' :
+                        return {
+                            ...state,
+                            pokemonShowCase: action.payload
+                        }
 
                 default:
                     return state

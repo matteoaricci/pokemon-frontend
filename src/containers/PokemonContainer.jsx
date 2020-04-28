@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
 import {fetchingPokemons} from "../redux/actions"
+import {connect} from 'react-redux'
+import PokemonList from '../components/PokemonList'
 
 class PokemonContainer extends Component {
     componentDidMount(){
         this.props.dispatch(fetchingPokemons())
     }
     render() {
-        const {pokemons } = this.props
+        const {pokemons} = this.props
 
         return (
-            <ul>
-                {pokemons.map(pokemon => 
-                <li key = {pokemon.id}>{pokemon.name}</li>
-                    )}
-            </ul>
+            <div>
+                {pokemons.map(pokemon => <PokemonList pokemon={pokemon}/>)}
+            </div>
         )
         
     }
