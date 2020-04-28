@@ -2,22 +2,28 @@ import React, { Component } from 'react';
 import '../Css-files/pokemonTeam.css'
 import { FormControl, FormGroup, InputGroup } from 'react-bootstrap'
 import PokemonCard from '../components/PokemonCard'
+import {connect} from 'react-redux'
+import TeamList from './TeamList'
+
 
 class TeamCreator extends Component {
     constructor() {
         super();
         this.state = {
-            pokemon: [
-                { pokemon1: {} }
-            ]
+            team: []
         }
     }
 
     render() {
 
         const { pokemons } = this.props
+        const { team } = this.props
         return (
             <div className="container">
+
+                <div className="team-list">
+                    <TeamList team={team}/>
+                </div>
 
                 <div className="row filters">
                     <div className="col-sm pkm-species-filter">
@@ -48,27 +54,16 @@ class TeamCreator extends Component {
                     })}
 
                 </div>
-                {/* <div className="row list">
-                    <div className="col-sm create-team-species">
-                        Pokemon Species
-                        {pokemons.map(pokemon => <li>{pokemon.name}</li>)}
-                    </div>
-
-                    <div className="col-sm create-team-type">
-                        Pokemon Type
-                        {pokemons.map(pokemon => pokemon.type2 != 'null' ? <li>{pokemon.type2} / {pokemon.type1}</li> : <li>{pokemon.type1}</li>)}
-                    </div>
-
-                    <div className="col-sm create-team-stat">
-                        Pokmeon Stats
-                        {pokemons.map(pokemon =>
-                        <li>{pokemon.hp_stat}  {pokemon.attack_stat}  {pokemon.defense_stat}  {pokemon.sp_attack_stat}  {pokemon.sp_defense_stat}  {pokemon.speed_stat} </li>
-                    )}
-                    </div>
-                </div> */}
             </div>
         );
     }
 }
 
-export default TeamCreator;
+const mapStateToProps = state => {
+    return (
+        { team: state.team }
+    )
+
+}
+
+export default connect(mapStateToProps)(TeamCreator);

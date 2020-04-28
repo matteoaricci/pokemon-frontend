@@ -14,4 +14,11 @@ function fetchedPokemons(pokemons) {
     }
 }
 
-export {fetchingPokemons}
+function clickedTeamPoke(pokemon) {
+    return {
+        type: "TEAM_POKE_CLICK",
+        payload: pokemon
+    }
+}
+
+export {fetchingPokemons, clickedTeamPoke}

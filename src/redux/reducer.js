@@ -1,7 +1,10 @@
 import { combineReducers } from "redux";
 
     const initialState = {
-        pokemons: []
+        pokemons: [],
+        teamCount: '',
+        team: [
+        ]
     }
 
     export default function pokemonsReducer(state = initialState, action) {
@@ -11,6 +14,15 @@ import { combineReducers } from "redux";
                     ...state,
                     pokemons: action.payload
                 }
+
+                case 'TEAM_POKE_CLICK' :
+                    return {
+                        ...state,
+                        teamCount: state.team.count,
+                        team: [
+                            ...state.team, action.payload
+                        ]
+                    }
 
                 default:
                     return state
