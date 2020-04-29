@@ -9,6 +9,7 @@ class TeamList extends Component {
         super();
         this.state = {
             selectedPokemon: {},
+            idx: '',
             viewShowcase: false
         }
     }
@@ -18,6 +19,7 @@ class TeamList extends Component {
         let pokemon = this.props.team[index]
         this.setState({
             selectedPokemon: pokemon,
+            idx: index,
             viewShowcase: true
         })
     } 
@@ -31,7 +33,7 @@ class TeamList extends Component {
                 <Button onClick={event => this.handleOnClick(event)} className='team-list custom-btn' value={index} size="sm">{pokemon.name.toUpperCase()}</Button>
                 )}
 
-                {this.state.viewShowcase ? <TeamCreatorShowcase pokemon={this.state.selectedPokemon}/> : null}
+                {this.state.viewShowcase ? <TeamCreatorShowcase index={this.state.idx} pokemon={this.state.selectedPokemon}/> : null}
            </div>
         );
     }
