@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactBootstrapSlider from 'react-bootstrap-slider'
 import {Form, Button} from 'react-bootstrap'
 
 class TeamCreatorShowcase extends Component {
@@ -25,7 +24,7 @@ class TeamCreatorShowcase extends Component {
         
     }
 
-    handleEvChange = event => {
+    handleStatChange = event => {
         let keyForState = event.target.name
         this.setState({['poke' + this.props.index]: {...this.state['poke' + this.props.index], [keyForState]: event.target.value}
             })
@@ -34,7 +33,7 @@ class TeamCreatorShowcase extends Component {
     render() {
         const {pokemon} = this.props
         const {slider} = this.state
-        const RangeValue = this.state['poke' + this.props.index]
+        const teamStateVal = this.state['poke' + this.props.index]
         return (
             <div>
                 species: {pokemon.name}  type(s): {pokemon.type1}
@@ -59,26 +58,47 @@ class TeamCreatorShowcase extends Component {
 
                 </Form>
                     <div className="EVslider">
-                        <label htmlFor="evslider-hp">HP EV: {RangeValue.evsliderHp}</label><br></br>
-                        <input onChange={(event) => this.handleEvChange(event)} type="range" name={'evsliderHp'} value={RangeValue.evsliderHp} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
+                        <label htmlFor="evslider-hp">HP EV: {teamStateVal.evsliderHp}</label><br></br>
+                        <input onChange={(event) => this.handleStatChange(event)} type="range" name={'evsliderHp'} value={teamStateVal.evsliderHp} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
 
-                        <label htmlFor="evslider-atk">ATTACK EV: {RangeValue.evsliderAtk}</label><br></br>
-                        <input onChange={(event) => this.handleEvChange(event)} type="range" name={'evsliderAtk'} value={RangeValue.evsliderAtk} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
+                        <label htmlFor="evslider-atk">ATTACK EV: {teamStateVal.evsliderAtk}</label><br></br>
+                        <input onChange={(event) => this.handleStatChange(event)} type="range" name={'evsliderAtk'} value={teamStateVal.evsliderAtk} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
 
-                        <label htmlFor="evslider-def">DEFENSE EV: {RangeValue.evsliderDef}</label><br></br>
-                        <input onChange={(event) => this.handleEvChange(event)} type="range" name={'evsliderDef'} value={RangeValue.evsliderDef} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
+                        <label htmlFor="evslider-def">DEFENSE EV: {teamStateVal.evsliderDef}</label><br></br>
+                        <input onChange={(event) => this.handleStatChange(event)} type="range" name={'evsliderDef'} value={teamStateVal.evsliderDef} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
 
-                        <label htmlFor="evslider-sp-atk">SPECIAL ATTACK EV: {RangeValue.evsliderSpAtk}</label><br></br>
-                        <input onChange={(event) => this.handleEvChange(event)} type="range" name={'evsliderSpAtk'} value={RangeValue.evsliderSpAtk} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
+                        <label htmlFor="evslider-sp-atk">SPECIAL ATTACK EV: {teamStateVal.evsliderSpAtk}</label><br></br>
+                        <input onChange={(event) => this.handleStatChange(event)} type="range" name={'evsliderSpAtk'} value={teamStateVal.evsliderSpAtk} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
 
-                        <label htmlFor="evslider-sp-def">SPECIAL DEFENSE EV: {RangeValue.evsliderSpDef}</label><br></br>
-                        <input onChange={(event) => this.handleEvChange(event)} type="range" name={'evsliderSpDef'} value={RangeValue.evsliderSpDef} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
+                        <label htmlFor="evslider-sp-def">SPECIAL DEFENSE EV: {teamStateVal.evsliderSpDef}</label><br></br>
+                        <input onChange={(event) => this.handleStatChange(event)} type="range" name={'evsliderSpDef'} value={teamStateVal.evsliderSpDef} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
 
-                        <label htmlFor="evslider-spd">SPEED EV: {RangeValue.evsliderSpd}</label><br></br>
-                        <input onChange={(event) => this.handleEvChange(event)} type="range" name={'evsliderSpd'} value={RangeValue.evsliderSpd} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
+                        <label htmlFor="evslider-spd">SPEED EV: {teamStateVal.evsliderSpd}</label><br></br>
+                        <input onChange={(event) => this.handleStatChange(event)} type="range" name={'evsliderSpd'} value={teamStateVal.evsliderSpd} min={this.state.min} max={this.state.max} step={this.state.step}/><br></br>
 
 
+                        <div className="IVselector">
+                            <label htmlFor="hpDV">HP DV: </label>
+                            <input value={teamStateVal.hpDV} onChange={event => this.handleStatChange(event)} type="number" name="hpDV" min='0'  max='15' step='1'/><br></br>
+
+                            <label htmlFor="hpDV">ATK DV: </label>
+                            <input value={teamStateVal.AtkDV} onChange={event => this.handleStatChange(event)} type="number" name="AtkDV" min='0'  max='15' step='1'/><br></br>
+
+                            <label htmlFor="hpDV">DEF DV: </label>
+                            <input value={teamStateVal.DefDV} onChange={event => this.handleStatChange(event)} type="number" name="DefDV" min='0'  max='15' step='1'/><br></br>
+
+                            <label htmlFor="hpDV">SP ATK DV: </label>
+                            <input value={teamStateVal.SpAtkDV} onChange={event => this.handleStatChange(event)} type="number" name="SpAtkDV" min='0'  max='15' step='1'/><br></br>
+
+                            <label htmlFor="hpDV">SP DEF DV: </label>
+                            <input value={teamStateVal.SpDefDV} onChange={event => this.handleStatChange(event)} type="number" name="SpDefDV" min='0'  max='15' step='1'/><br></br>
+
+                            <label htmlFor="hpDV">SPD DV: </label>
+                            <input value={teamStateVal.SpdDV} onChange={event => this.handleStatChange(event)} type="number" name="SpdDV" min='0'  max='15' step='1'/><br></br>
+                        </div>
                     </div>
+
+                    
             </div>
         );
     }
