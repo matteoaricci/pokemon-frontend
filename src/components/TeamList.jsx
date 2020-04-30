@@ -10,7 +10,8 @@ class TeamList extends Component {
         this.state = {
             selectedPokemon: {},
             idx: '',
-            viewShowcase: false
+            viewShowcase: false,
+            currentMoveset: []
         }
     }
 
@@ -22,6 +23,11 @@ class TeamList extends Component {
             idx: index,
             viewShowcase: true
         })
+        
+        let pokeId = pokemon.id
+        fetch(`http://localhost:3000/pokemon/${pokeId}/moves`)
+        .then(resp => resp.json())
+        .then(moveset => this.setState({currentMoveset: moveset}))
     } 
     
     render() {
@@ -33,7 +39,7 @@ class TeamList extends Component {
                 <Button onClick={event => this.handleOnClick(event)} className='team-list custom-btn' value={index} size="sm">{pokemon.name.toUpperCase()}</Button>
                 )}
 
-                {this.state.viewShowcase ? <TeamCreatorShowcase index={this.state.idx} pokemon={this.state.selectedPokemon}/> : null}
+                {this.state.viewShowcase ? <TeamCreatorShowcase index={this.state.idx} pokemon={this.state.selectedPokemon} moveset={this.state.currentMoveset}/> : null}
            </div>
         );
     }

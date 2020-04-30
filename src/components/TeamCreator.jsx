@@ -44,7 +44,7 @@ class TeamCreator extends Component {
                 </div>
                 <div className="pokemon-grid">
                     {this.props.pokemons.map(pokemon => {
-                        return <PokemonCard pokemon={pokemon} />
+                        return <PokemonCard pokemon={pokemon} key={pokemon.id} />
                     })}
                 </div>
             </div>

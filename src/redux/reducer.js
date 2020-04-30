@@ -2,9 +2,9 @@ import { combineReducers } from "redux";
 
     const initialState = {
         pokemons: [],
-        teamCount: '',
-        team: [
-        ]
+        team: [],
+        movesets: [],
+        moves: []
     }
 
     export default function pokemonsReducer(state = initialState, action) {
@@ -23,6 +23,14 @@ import { combineReducers } from "redux";
                             ...state.team, action.payload
                         ]
                     }
+
+                    case 'FETCHED_MOVESETS' :
+                        return {
+                            ...state,
+                            movesets: [
+                                ...state.team, action.payload
+                            ]
+                        }
 
                 default:
                     return state

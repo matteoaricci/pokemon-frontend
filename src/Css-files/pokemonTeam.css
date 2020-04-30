@@ -7,7 +7,7 @@
 
 .create-team-stat {}
 
-.container {
+.pokemon-grid {
     max-height: 800px;
     overflow-y: scroll;
 }
