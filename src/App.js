@@ -11,6 +11,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import NewUserForm from './components/NewUserForm'
 import WelcomeScreen from './containers/WelcomeScreen'
+import BattleContainer from './containers/BattleContainer'
 import {
   BrowserRouter as Router,
   Redirect,
@@ -28,6 +29,7 @@ function App() {
         {/* <Route path='/editteam' component={EditTeam} /> */}
         <Route path='/pokemon' component={PokemonContainer}/>
         <Route path='/welcomepage' component={WelcomeScreen} />
+        <Route path='/battlecontainer' component={BattleContainer} />
         {/* <Route path='/' component={Home} /> */}
       </div>
     </Router>
