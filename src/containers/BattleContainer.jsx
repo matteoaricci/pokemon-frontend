@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
 import BattleRoom from '../components/BattleRoom'
+import {Button} from 'react-bootstrap'
+import ActionCable from 'actioncable'
+
 
 class BattleContainer extends Component {
 
-    ws = new WebSocket('ws://localhost:3001/ws')
+constructor() {
+    super();
+    this.state = {
+        roomNumber: '',
+        roomId: null
+    }
 
-    componentDidMount() {
-        this.ws.onopen = () => {
-            console.log('connected')
-        }
+}
 
-        this.ws.onmessage = evt => {
-            const message = JSON.parse(evt.data)
-            this.setState({dataFromServer: message})
-            console.log(message)
-        }
+componentDidMount() {
+    // var ws = new WebSocket(`ws://localhost:3000/cable`)
+    const consumer = ActionCable.createConsumer(`ws://localhost:3000/cable`)
+    this.subscription = consumer.subscriptions.create({channel: "RoomChannel", room: 1}, 
+    { received: (data) => console.log(data)})
+    }
 
-        this.ws.onclose = () => {
-            console.log('disconnected')
-        }
+    handleOnSubmit = () => {
+       this.subscription.send({
+           text: 'hello',
+           id: 1
+        })
+    }
+
+    handleOnChange = event => {
+        this.setState({roomNumber: event.target.value})
     }
 
     render() {
         return (
-            <div>
-                <BattleRoom websocket={this.ws}/>
+            <div className="cont">
+                {/* <input onChange={event => this.handleOnChange(event)} value={this.state.roomNumber} type='text'/> */}
+                <Button onClick={this.handleOnSubmit} >send</Button>
             </div>
         );
     }
