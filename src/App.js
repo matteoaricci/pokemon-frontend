@@ -8,10 +8,9 @@ import Popper from 'popper.js';
 import NavBar from "./components/NavBar";
 import PokemonContainer from './containers/PokemonContainer';
 import Home from './components/Home'
-import Login from './components/Login'
-import NewUserForm from './components/NewUserForm'
 import WelcomeScreen from './containers/WelcomeScreen'
 import BattleContainer from './containers/BattleContainer'
+import TeamViewer from './components/TeamViewer' 
 import {
   BrowserRouter as Router,
   Redirect,
@@ -20,20 +19,35 @@ import {
   Link 
 } from 'react-router-dom'
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <NavBar />
-        {/* <Route path='/createteam' component={CreateTeam} /> */}
-        {/* <Route path='/editteam' component={EditTeam} /> */}
-        <Route path='/pokemon' component={PokemonContainer}/>
-        <Route path='/welcomepage' component={WelcomeScreen} />
-        <Route path='/battlecontainer' component={BattleContainer} />
-        {/* <Route path='/' component={Home} /> */}
-      </div>
-    </Router>
-  );
+class App extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      loggedInStatus: 'NOT_LOGGED_IN',
+      user: {}
+    }
+  }
+
+  componentDidMount() {
+    let currentUser = localStorage.getItem('user')
+    this.setState({user: currentUser})
+  }
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <NavBar />
+          {/* <Route path='/createteam' component={CreateTeam} /> */}
+          <Route path='/viewteam' component={TeamViewer} />
+          <Route path='/newteam' component={PokemonContainer}/>
+          <Route exact path='/' component={WelcomeScreen} />
+          <Route path='/battlecontainer' component={BattleContainer} />
+          <Route exact path='/home' component={Home} />
+        </div>
+      </Router>
+    );
+    }
 }
 
 export default App;

@@ -8,13 +8,15 @@ const NewUserForm = () => {
 
     function handleSubmit(event) {
         event.preventDefault()
-        fetch('http://localhost:3000/users', {
+        fetch('http://localhost:3000/registrations', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({username: username,
-                                  password_digest: password,
+                                  password: password,
                                   trainer_name: trainerName})
         })
+        .then(resp => resp.json())
+        .then(user => console.log(user))
     }
 
     function validateForm() {

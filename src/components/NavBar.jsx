@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom'
+import {connect} from 'react-redux'
 
 class NavBar extends Component {
+
+    handleLogout = () => {
+        localStorage.clear();
+    }
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,6 +37,9 @@ class NavBar extends Component {
                         </div>
                     </li>
 
+                    <li className="logout">
+                        <Link onClick={this.handleLogout} className="nav-link" to='/'>Logout</Link>
+                    </li>
                     {/* <li className="nav-item">
                         <a className="nav-link disabled" href="#">Disabled</a>
                     </li> */}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchingPokemons } from "../redux/actions"
 import TeamCreator from "../components/TeamCreator"
+import TeamViewer from '../components/TeamViewer'
 import Moveset from "../components/Moveset"
 import {Button} from 'react-bootstrap'
 
@@ -40,9 +41,9 @@ class PokemonContainer extends Component {
                         handlePokemonSelected={this.handlePokemonSelected}
                         pokemons={this.filterPokemon(this.props.pokemons)}
 
-                    /> :
-                    <Moveset />
+                    /> : null
                 }
+                <TeamViewer pokemons={this.props.pokemons}/>
             </div>
         )
 

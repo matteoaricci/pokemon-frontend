@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, FormLabel, Form } from "react-bootstrap";
+import { loggedIn } from "../redux/actions"
+import {connect} from 'react-redux'
 import '../Css-files/login.css'
+import {withRouter} from 'react-router'
 
 class Login extends Component {
     constructor() {
@@ -13,6 +16,17 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        fetch('http://localhost:3000/sessions', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({username: this.state.username, password: this.state.password})
+        })
+        .then(resp => resp.json())
+        .then(user => localStorage.setItem('user', user.user.id))
+        this.props.history.push('/home')
+        
     }
 
     validateForm(){
@@ -21,7 +35,7 @@ class Login extends Component {
     render() {
         return (
             <div className="Login text-center">
-                <form onSubmit={event => this.handleSubmit(event)}>
+                <Form onSubmit={event => this.handleSubmit(event)}>
                 <FormGroup controlId='username'>
                     <FormLabel>Username</FormLabel>
                     <FormControl
@@ -31,6 +45,7 @@ class Login extends Component {
                     onChange={e => {this.setState({username: e.target.value}); console.log(this.validateForm())}}
                     />
                 </FormGroup>
+                
                 <FormGroup>
                     <FormLabel>Password</FormLabel>
                     <FormControl 
@@ -39,13 +54,22 @@ class Login extends Component {
                     onChange={e => {this.setState({password: e.target.value}); this.validateForm()}}
                     />
                 </FormGroup>
-                </form>
-                <Button className='login-button' block disabled={this.validateForm()} type='submit'>
+                <Button onClick={event => this.handleSubmit(event)} className='login-button' block disabled={this.validateForm()} type='submit'>
                     Login
                 </Button>
+                </Form>
             </div>
         );
     }
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => {
+    return (
+        { login: (user) => dispatch(loggedIn(user)) }
+    )
+}
+
+// export default connect(null, mapDispatchToProps)(PokemonCard)
+
+
+export default withRouter(connect(null, mapDispatchToProps)(Login));

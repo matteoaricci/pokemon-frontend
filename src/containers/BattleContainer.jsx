@@ -16,7 +16,6 @@ constructor() {
 }
 
 componentDidMount() {
-    // var ws = new WebSocket(`ws://localhost:3000/cable`)
     const consumer = ActionCable.createConsumer(`ws://localhost:3000/cable`)
     this.subscription = consumer.subscriptions.create({channel: "RoomChannel", room: 1}, 
     { received: (data) => console.log(data)})

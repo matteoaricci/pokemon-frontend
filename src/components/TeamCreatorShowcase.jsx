@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {Form, Button} from 'react-bootstrap'
-import SearchSelect from 'react-select-search'
 
 class TeamCreatorShowcase extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            userId: localStorage.getItem('user'),
             min: 0,
             max: 252,
             currentMoveset: [],
@@ -38,7 +38,7 @@ class TeamCreatorShowcase extends Component {
                 'Content-Type' : 'application/json',
                 "Accept" : 'application/json'
             },
-            body: JSON.stringify({user_id: 1})
+            body: JSON.stringify({user_id: this.state.userId})
         })
         .then(resp => resp.json())
         .then(userTeamId => this.fetchTeamMaker(userTeamId))

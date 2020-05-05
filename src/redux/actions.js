@@ -37,4 +37,11 @@ function clickedTeamPoke(pokemon) {
     }
 }
 
-export {fetchingPokemons, clickedTeamPoke, fetchingPokemonMoves}
+function loggedIn(user) {
+    return {
+        type: 'USER_LOGIN',
+        payload: user
+    }
+}
+
+export {fetchingPokemons, clickedTeamPoke, fetchingPokemonMoves, loggedIn}
