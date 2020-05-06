@@ -47,3 +47,13 @@
     transform: rotate(360deg);
   }
 }
+
+Button:hover, .btn.btn-primary:hover {
+  background-color: #004183;
+  color: white;
+}
+
+Button, .btn.btn-primary {
+  background-color: #9cace6;
+  color: black;
+}

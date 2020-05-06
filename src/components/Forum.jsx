@@ -40,7 +40,7 @@ class Forum extends Component {
                 </div>
                 <form className="message-creator" onSubmit={event => this.handleOnSubmit(event)}>
                     <textarea onChange={event => this.handleOnChange(event)} value={this.state.currentMessage} type="textarea"/><br></br>
-                    <Button type='submit'>Send</Button>
+                    <Button className='forum-btn' type='submit'>Send</Button>
                 </form>
             </div>
         );

@@ -1,0 +1,71 @@
+.EVslider {
+    width: 45%;
+    text-align: left;
+}
+.ev-input {
+    float: right;
+    width: 66%;
+}
+
+.ev-form {
+    height: 288px;
+}
+
+.ev-label, .ev-input {
+    margin-top: 9px;
+    margin-bottom: 9px;
+    margin-left: 10px;
+}
+
+.dv-label {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.ev-form {
+    border-color: #004183;
+    border-style: double;
+}
+
+.IVselector {
+    width: 100%;
+    margin-top: 2%;
+    border-style: double;
+    border-color: #004183;
+}
+
+.dv-input {
+    float: right;
+    margin-right: 25%;
+    height: 24px;
+}
+
+.ev-header, .dv-header {
+    background-color: #004183;
+    color: white;
+}
+
+.dv-header {
+    width: 100%;
+}
+
+.move-form {
+    float: right;
+    width: 45%;
+    border-color: #62737b;
+    border-style: double;
+}
+
+.move-header {
+ text-align: right;
+ background-color: #62737b;
+}
+
+select.move {
+    width: 100%;
+    float: left;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+}

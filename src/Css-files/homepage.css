@@ -2,12 +2,57 @@
     height: 500px;
     text-align: left;
     overflow-y: scroll;
-    overflow-x: ;
     max-width: 800px;
 }
 
+div.teams-row {
+    display: inline-block;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+}
+
+.forum-btn {
+    background-color: #29318b;
+}
+
+.card, .card-body, .card-header {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #29318b;
+    color: white;
+    ;
+}
+
+.card-body {
+    background-color: #9cace6
+}
+
+.list-group-item {
+    margin: 2%;
+}
+
+.teams.row {
+    width: 700px;
+    margin: 0;
+}
+
+h3 {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #9cace6;
+}
+
 h2 {
-    margin-top: 5%;
+    margin-top: 40px;
+    background-color: #9cace6;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .pokemon-name {
@@ -28,13 +73,13 @@ h2 {
 
 .user-teams {
     float: left;
-    margin-left: 1%;
-    width: 500px;
+    padding: 0;
+    width: 700px;
 }
 
 .forum {
     float: right;
-    margin-right: 1%;
+    padding: 0;
 }
 
 textarea {
@@ -44,4 +89,9 @@ textarea {
 
 .home-page-components {
     display: inline;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }

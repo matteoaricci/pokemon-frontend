@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 
-const NewUserForm = () => {
+import {withRouter} from 'react-router'
+
+const NewUserForm = ( props ) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [trainerName, setTrainerName] = useState('')
 
-    function handleSubmit(event) {
+    function handleLoginSubmit(event) {
         event.preventDefault()
         fetch('http://localhost:3000/registrations', {
             method: 'POST',
@@ -16,7 +18,10 @@ const NewUserForm = () => {
                                   trainer_name: trainerName})
         })
         .then(resp => resp.json())
-        .then(user => console.log(user))
+        .then(user => {
+            localStorage.setItem('user', user.user.id)
+            props.history.push('/home')
+        })
     }
 
     function validateForm() {
@@ -25,7 +30,7 @@ const NewUserForm = () => {
 
     return (
         <div className='new-user-form text-center'>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleLoginSubmit}>
                 <FormGroup controlId='username'>
                     <FormLabel>Choose Your Username</FormLabel>
                     <FormControl 
@@ -53,13 +58,14 @@ const NewUserForm = () => {
                     onChange={e => setPassword(e.target.value)}
                     />
                 </FormGroup>
-
-                <Button block disabled={!validateForm()} type='submit'>
+                <div className="text-center">
+                <Button disabled={!validateForm()} type='submit'>
                     Create New User!
                 </Button>
+                </div>
             </form>
         </div>
     );
 }
 
-export default NewUserForm;
+export default withRouter(NewUserForm);

@@ -24,8 +24,10 @@ class Login extends Component {
             body: JSON.stringify({username: this.state.username, password: this.state.password})
         })
         .then(resp => resp.json())
-        .then(user => localStorage.setItem('user', user.user.id))
-        this.props.history.push('/home')
+        .then(user => {
+            localStorage.setItem('user', user.user.id)
+            this.props.history.push('/home')
+        })
         
     }
 
@@ -54,9 +56,11 @@ class Login extends Component {
                     onChange={e => {this.setState({password: e.target.value}); this.validateForm()}}
                     />
                 </FormGroup>
-                <Button onClick={event => this.handleSubmit(event)} className='login-button' block disabled={this.validateForm()} type='submit'>
+                <div className="text-center">
+                <Button onClick={event => this.handleSubmit(event)} className='login-button' disabled={this.validateForm()} type='submit'>
                     Login
                 </Button>
+                </div>
                 </Form>
             </div>
         );
