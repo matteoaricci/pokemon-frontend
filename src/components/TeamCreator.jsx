@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Css-files/pokemonTeam.css'
-import { FormControl, FormGroup, InputGroup } from 'react-bootstrap'
+import { FormControl, FormGroup } from 'react-bootstrap'
 import PokemonCard from '../components/PokemonCard'
 import {connect} from 'react-redux'
 import TeamList from './TeamList'
@@ -16,7 +16,7 @@ class TeamCreator extends Component {
 
     render() {
 
-        const { pokemons } = this.props
+        // const { pokemons } = this.props
         const { team } = this.props
         return (
             <div className="container">

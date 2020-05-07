@@ -1,6 +1,4 @@
-import { combineReducers } from "redux";
-
-    const initialState = {
+     const initialState = {
         pokemons: [],
         team: [],
         movesets: [],

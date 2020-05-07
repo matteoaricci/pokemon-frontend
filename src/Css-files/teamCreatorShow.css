@@ -1,10 +1,11 @@
 .EVslider {
-    width: 45%;
+    width: 48%;
     text-align: left;
 }
 .ev-input {
     float: right;
     width: 66%;
+    margin-right: 9px;
 }
 
 .ev-form {
@@ -23,15 +24,19 @@
 }
 
 .ev-form {
-    border-color: #004183;
+    border-color: #f6525a
+    ;
     border-style: double;
+    background-color: rgba(255, 255, 255);
 }
 
 .IVselector {
     width: 100%;
     margin-top: 2%;
     border-style: double;
-    border-color: #004183;
+    border-color: #f6525a
+    ;
+    background-color: rgba(255, 255, 255);
 }
 
 .dv-input {
@@ -41,7 +46,8 @@
 }
 
 .ev-header, .dv-header {
-    background-color: #004183;
+    background-color: #f6525a
+    ;
     color: white;
 }
 
@@ -49,23 +55,49 @@
     width: 100%;
 }
 
+.team-creator-showcase-container {
+    background-color: #c5c5c5;
+    
+}
+
 .move-form {
+    margin-top: 5%;
     float: right;
-    width: 45%;
-    border-color: #62737b;
+    width: 48%;
+    border-color: #f6525a
+    ;
     border-style: double;
+    background-color: rgba(255, 255, 255);
 }
 
 .move-header {
  text-align: right;
- background-color: #62737b;
+ background-color: #f6525a
+ ;
+ color: white;
+}
+
+Button.save-team-btn.btn.btn-primary {
+    border: none;
+    width: 100%;
+    background-color: #ff8b83;
+}
+
+.pokemon-type-desc {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #8bd5ff;
+    margin-bottom: 0;
 }
 
 select.move {
+    box-shadow: 1px 10px #f6525a;
     width: 100%;
     float: left;
     height: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top:  2rem;
+    margin-bottom: 2rem;
     text-align: justify;
 }
+
+

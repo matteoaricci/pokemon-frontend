@@ -6,22 +6,44 @@
   font-style: normal;
 }
 
-.App {
+div.App {
   text-align: center;
   font-family: 'pokemon_gbregular';
-  margin-left: 10%;
-  margin-right: 10%;
+  height: 100%;
+  background-color: white;
+  overflow: auto;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.welcome-components {
+  padding-bottom: 100%;
+}
+.welcome-border {
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 2%;
+  margin-top: 5%;
+  border-style: double;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.welcome-btn {
+  
+}
+
+div.Login {
+  padding: 1%;
+  background-color: #f6525a
+  ;
+}
+
+html {
+  padding-left: 10%;
+  padding-right: 10%;
+  background-image: url('./images/voltorb-sprite-art.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  height: 100%;
+  overflow: scroll;
 }
 
 .App-header {
@@ -39,21 +61,14 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 Button:hover, .btn.btn-primary:hover {
-  background-color: #004183;
+  background-color: #294a8b
+  ;
   color: white;
 }
 
 Button, .btn.btn-primary {
-  background-color: #9cace6;
+  background-color: #c5c5c5;
   color: black;
 }
+

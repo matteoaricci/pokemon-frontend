@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Forum from './Forum'
 import HomeTeam from './HomeTeam'
 import '../Css-files/homepage.css'

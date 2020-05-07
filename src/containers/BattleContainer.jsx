@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BattleRoom from '../components/BattleRoom'
 import {Button} from 'react-bootstrap'
 import ActionCable from 'actioncable'
 

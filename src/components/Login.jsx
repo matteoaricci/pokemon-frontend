@@ -73,7 +73,5 @@ const mapDispatchToProps = dispatch => {
     )
 }
 
-// export default connect(null, mapDispatchToProps)(PokemonCard)
-
 
 export default withRouter(connect(null, mapDispatchToProps)(Login));

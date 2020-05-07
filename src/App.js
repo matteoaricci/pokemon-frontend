@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-slider/dist/css/bootstrap-slider.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
-import Popper from 'popper.js';
 import NavBar from "./components/NavBar";
 import PokemonContainer from './containers/PokemonContainer';
 import Home from './components/Home'
@@ -13,10 +12,7 @@ import BattleContainer from './containers/BattleContainer'
 import TeamViewer from './components/TeamViewer' 
 import {
   BrowserRouter as Router,
-  Redirect,
-  Switch,
-  Route,
-  Link 
+  Route
 } from 'react-router-dom'
 
 class App extends React.Component {
@@ -37,6 +33,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
+          <div className='components-in-app'>
           <NavBar />
           {/* <Route path='/createteam' component={CreateTeam} /> */}
           <Route path='/viewteam' component={TeamViewer} />
@@ -44,6 +41,7 @@ class App extends React.Component {
           <Route exact path='/' component={WelcomeScreen} />
           <Route path='/battlecontainer' component={BattleContainer} />
           <Route exact path='/home' component={Home} />
+          </div>
         </div>
       </Router>
     );

@@ -1,19 +1,19 @@
 .Login, .new-user-form {
     margin-top: 5%;
-    margin-left: 30%;
-    margin-right: 30%;
 }
 
 Button.login-button {
-    width: 50%;
+    width: 100%;
     margin-top: 5%;
     text-align: center;
-    background-color: #9cace6
+    
 }
 
 .new-user-form {
-    width: 40%;
+    width: 100%;
     text-align: center;
+    background-color: #f6525a;
+    padding: 1%;
 }
 
 

@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { fetchingPokemons } from "../redux/actions"
 import TeamCreator from "../components/TeamCreator"
 import TeamViewer from '../components/TeamViewer'
-import Moveset from "../components/Moveset"
-import {Button} from 'react-bootstrap'
 
 class PokemonContainer extends Component {
     state = {
@@ -31,10 +29,13 @@ class PokemonContainer extends Component {
     }
 
     render() {
-        const { pokemons } = this.props
+        // const { pokemons } = this.props
 
         return (
             <div>
+                <h3 className="create-team-banner">
+                    Team Creator
+                </h3>
                 {this.state.showTeamList ?
                     <TeamCreator filter={this.filter}
                         handleFilterChange={this.handleFilterChange}

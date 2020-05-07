@@ -50,6 +50,8 @@ class TeamCreatorShowcase extends Component {
     fetchTeamMaker = (userTeamId) => {
         let party = this.state
         let teamArray = [party.poke0, party.poke1, party.poke2, party.poke3, party.poke4, party.poke5]
+            // eslint-disable-next-line
+        
         teamArray.map( poke => 
             fetch('http://localhost:3000/pokemon_teams', {
                 method: 'POST',
@@ -78,6 +80,7 @@ class TeamCreatorShowcase extends Component {
                     move4_id: parseInt(poke.moveFour)
                 })
             }).then(resp => resp.json())
+            // eslint-disable-next-line
             .then(resp => this.setState({fetchResp: this.state.fetchResp += 1}))
 
         )
@@ -89,10 +92,12 @@ class TeamCreatorShowcase extends Component {
         const teamStateVal = this.state['poke' + this.props.index]
         return (
         
-            <div>
+            <div className='team-creator-showcase-container'>
                 {this.state.fetchResp === 6 ? <Redirect to={'/home'} /> : null}
             <Button className='save-team-btn' onClick={this.handleSaveClick}>Save Team!</Button><br></br>
-               TYPE: {pokemon.type2 ? `${pokemon.type2.toUpperCase()} / ${pokemon.type1.toUpperCase()}` : `${pokemon.type1.toUpperCase()}`}<br></br>
+               <p className='pokemon-type-desc'>
+                   TYPE: {pokemon.type2 !== 'null' ? `${pokemon.type2.toUpperCase()} / ${pokemon.type1.toUpperCase()}` : `${pokemon.type1.toUpperCase()}`}<br></br>
+                </p>
                 <Form className='move-form' onChange={event => this.handleStatChange(event)}>
                     <h5 className="move-header">MOVES</h5>
                     <select className='move' name="moveOne">

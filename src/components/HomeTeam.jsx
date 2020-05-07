@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card, Container, Row, ListGroup} from 'react-bootstrap'
+import {Card, Container, ListGroup} from 'react-bootstrap'
 
 class HomeTeam extends Component {
     constructor(props) {

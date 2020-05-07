@@ -59,7 +59,7 @@ const NewUserForm = ( props ) => {
                     />
                 </FormGroup>
                 <div className="text-center">
-                <Button disabled={!validateForm()} type='submit'>
+                <Button className='new-user-btn' disabled={!validateForm()} type='submit'>
                     Create New User!
                 </Button>
                 </div>

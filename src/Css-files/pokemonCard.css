@@ -1,19 +1,23 @@
 .pokemon-card-stats {
     font-size: 0.6rem;
-    background-color: #62737b
+    background-color: #ff8b83
+
     ;
-    color: white;
+    color: black;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
 .poke-card-body.card-body {
-    background-color: #b4c5f6
+    background-color: #c5c5c5
+
     ;
 }
 
 .card-title.h5 {
-    background-color: #525aac
+    background-color: #294a8b
+
+
     ;
     color: white;
     padding-top: 5px;
